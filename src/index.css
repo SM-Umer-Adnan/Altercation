@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Dark esports theme */
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 5.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 5.9%;
+    --popover-foreground: 0 0% 98%;
+
+    /* Red gaming primary */
+    --primary: 0 84% 60%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 4% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 5% 15%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 240 4% 15.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 5% 15%;
+    --input: 240 5% 15%;
+    --ring: 0 84% 60%;
+
+    --radius: 0.75rem;
+
+    /* Custom gaming colors */
+    --gaming-red: 0 84% 60%;
+    --gaming-red-dark: 0 84% 50%;
+    --gaming-dark: 240 10% 3.9%;
+    --gaming-card: 240 8% 8%;
+    --gaming-border: 240 6% 20%;
+    
+    /* Gradients */
+    --gradient-main: linear-gradient(135deg, hsl(240 15% 5%), hsl(300 25% 15%), hsl(0 30% 20%), hsl(220 35% 25%));
+    --gradient-card: linear-gradient(145deg, hsl(240 8% 8%), hsl(240 6% 12%));
+    --gradient-red: linear-gradient(135deg, hsl(0 84% 60%), hsl(0 84% 50%));
+    
+    /* Shadows */
+    --shadow-gaming: 0 10px 30px -5px hsl(240 10% 3.9% / 0.3);
+    --shadow-red: 0 8px 25px -8px hsl(0 84% 60% / 0.4);
+    --shadow-card: 0 4px 15px -3px hsl(240 10% 3.9% / 0.2);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark mode uses same colors */
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    background: var(--gradient-main);
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  .gaming-card {
+    @apply bg-card rounded-xl border border-gaming-border;
+    /* background: var(--gradient-card); */
+    box-shadow: var(--shadow-card);
+  }
+  
+  .gaming-button {
+    @apply px-6 py-2.5 rounded-lg font-semibold transition-all duration-200;
+    background: var(--gradient-red);
+    box-shadow: var(--shadow-red);
+  }
+  
+  .gaming-button:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.1);
+  }
+  
+  .gaming-section {
+    @apply py-12 px-4 sm:px-6 lg:px-8;
+  }
+}
