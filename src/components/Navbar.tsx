@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
-
+import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
     <nav className="w-full py-3 lg:py-4 px-4 sm:px-6 lg:px-8 relative z-50">
@@ -48,13 +48,14 @@ const Navbar = () => {
           {/* Desktop buttons */}
           <div className="hidden sm:flex items-center space-x-3">
             <Button 
+            asChild
               variant="outline" 
               className="text-muted-foreground hover:text-foreground border-gaming-border bg-transparent hover:bg-gaming-border/20 px-5 py-2 text-sm font-semibold uppercase tracking-wide"
             >
-              LOGIN
-            </Button>
-            <Button className="gaming-button text-white hover:text-white px-5 py-2 text-sm font-bold uppercase tracking-wide">
-              SIGN UP
+<Link to="/login" aria-label="Go to login page">LOGIN</Link>
+              </Button>
+<Button asChild className="gaming-button text-white hover:text-white px-5 py-2 text-sm font-bold uppercase tracking-wide">
+              <Link to="/signup" aria-label="Go to sign up page">SIGN UP</Link>
             </Button>
           </div>
         </div>

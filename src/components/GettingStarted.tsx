@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const GettingStarted = () => {
   const steps = [
@@ -37,8 +38,8 @@ const GettingStarted = () => {
           ))}
         </div>
         
-        <Button className="gaming-button text-white text-sm sm:text-base lg:text-lg px-6 sm:px-8 lg:px-12 py-2.5 sm:py-3 lg:py-4 hover:text-white font-bold uppercase tracking-wider shadow-red">
-          SIGN UP
+  <Button asChild className="gaming-button text-white text-sm sm:text-base lg:text-lg px-6 sm:px-8 lg:px-12 py-2.5 sm:py-3 lg:py-4 hover:text-white font-bold uppercase tracking-wider shadow-red">
+          <Link to="/signup">SIGN UP</Link>
         </Button>
       </div>
     </section>
