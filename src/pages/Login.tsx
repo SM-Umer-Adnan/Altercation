@@ -2,9 +2,12 @@ import React, { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 
 const Login = () => {
+
+    const navigate = useNavigate();
   useEffect(() => {
     document.title = "Altercation Login | Esports Platform";
     // Meta description
@@ -29,8 +32,22 @@ const Login = () => {
     canonical.setAttribute('href', window.location.href);
   }, []);
 
-  const onSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
+const onSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
+
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    const user = (data.get('user') || '').toString().trim();
+    const password = (data.get('password') || '').toString();
+
+    if (user === 'test' && password === 'test123') {
+      localStorage.setItem('isAuthenticated', 'true');
+      localStorage.setItem('authUser', JSON.stringify({ username: 'test', demo: true }));
+      toast.success('Logged in successfully');
+      navigate('/', { replace: true });
+    } else {
+      toast.error('Invalid credentials. Try test / test123');
+    }
   };
 
   return (
